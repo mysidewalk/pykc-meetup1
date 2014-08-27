@@ -15,8 +15,13 @@ class IndexView(TemplateView):
 admin.autodiscover()
 urlpatterns = patterns(
     '',
-    url(r'^api/hello/', include('hello.urls', namespace='hello')),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin', include(admin.site.urls)),
     url(r'^docs', include('rest_framework_swagger.urls')),
-    url(r'^((?!api|docs).)*$', IndexView.as_view()),
+    url(r'^((?!admin|api|docs).)*$', IndexView.as_view()),
+)
+
+urlpatterns += patterns(
+    '',
+    # KICKSTARTER: DRF doesn't properly support namespaces, making '^api/' necessary before each
+    url(r'^api/hello', include('hello.urls')),
 )
