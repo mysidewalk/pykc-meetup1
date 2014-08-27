@@ -1,0 +1,1 @@
+This README is a placeholder for the logs directory since all logs are ignored by git, and git will not track empty directories.

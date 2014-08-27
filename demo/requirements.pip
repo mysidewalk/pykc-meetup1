@@ -1,0 +1,12 @@
+# annexed pip requirements for build server
+CherryPy==3.3.0
+Django==1.6.6
+Markdown==2.4.1
+django-filter==0.7
+djangorestframework==2.3.14
+python-dateutil==2.2
+pytz==2014.4
+simplejson==3.6.3
+django-rest-swagger==0.1.14
+six==1.7.3
+ipython==2.2.0
