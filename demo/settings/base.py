@@ -24,6 +24,7 @@ THIRD_PARTY_APPS = [
 # **************************************************************************************************
 INHOUSE_APPS = [
     'hello',
+    'soakinspecks',
 ]
 INSTALLED_APPS = THIRD_PARTY_APPS + INHOUSE_APPS
 

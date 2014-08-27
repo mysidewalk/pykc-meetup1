@@ -23,4 +23,5 @@ urlpatterns += patterns(
     '',
     # KICKSTARTER: DRF doesn't properly support namespaces, making '^api/' necessary before each
     url(r'^api/hello', include('hello.urls')),
+    url(r'^api/soakinspecks', include('soakinspecks.urls')),
 )
