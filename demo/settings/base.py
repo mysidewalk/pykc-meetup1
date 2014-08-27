@@ -52,6 +52,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+USE_X_FORWARDED_HOST = True
+
 STATIC_ROOT = '/var/www/static/'
 STATIC_URL = '/static/'
 MEDIA_ROOT = '/var/www/media/'
