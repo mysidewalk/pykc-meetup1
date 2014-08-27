@@ -16,13 +16,11 @@ THIRD_PARTY_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'rest_framework',
-    'rest_framework_swagger',
 ]
 # **************************************************************************************************
 # Consider carefully the dependency graph of the app you will add to the inhouse apps list.
-# Your app is able to depend on any app specified earlier in the list (i.e. "common" can't depend on 
-# anything) and be a dependee of anything specified later (i.e. "common" can be dependend upon by
-# anything).
+# Your app is able to depend on any app specified earlier in the list  and be a dependee 
+# of anything specified later.
 # **************************************************************************************************
 INHOUSE_APPS = [
     'hello',
@@ -75,6 +73,7 @@ TEMPLATE_CONTEXT_PROCESSORS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.BrowsableAPIRenderer',
         'rest_framework.renderers.JSONRenderer',
     ),
     'DEFAULT_PARSER_CLASSES': (

@@ -91,21 +91,6 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-SWAGGER_SETTINGS = {
-    'exclude_namespaces': [],  # List URL namespaces to ignore
-    'api_version': '0.1',  # Specify your API's version
-    #'api_path': '/',
-    'enabled_methods': [  # Specify which methods to enable in Swagger UI
-        'get',
-        'post',
-        'put',
-        'patch',
-        'delete'
-    ],
-    'is_authenticated': True,  # Set to True to enforce user authentication,
-    'is_superuser': True,  # Set to True to enforce admin only access
-}
-
 #### DON'T PUT ANYTHING BELOW THIS!!!!!
 try:
     from settings.local import *

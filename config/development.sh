@@ -7,6 +7,9 @@ apt-get update
 apt-get install -y apache2 libapache2-mod-wsgi libapache2-mod-proxy-html
 a2enmod proxy proxy_ajp proxy_http rewrite deflate headers proxy_balancer proxy_connect proxy_html
 
+# sqlite3
+apt-get install -y sqlite3
+
 # python
 apt-get install -y build-essential python python-dev
 

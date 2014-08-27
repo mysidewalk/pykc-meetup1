@@ -9,14 +9,13 @@ from django.http import HttpResponse
 class IndexView(TemplateView):
 
     def get(self, request, *args, **kwargs):
-        return HttpResponse('Hello world, please browse to /docs to see api docs.')
+        return HttpResponse('Hello world, please browse to /admin to see api admin.')
 
 
 admin.autodiscover()
 urlpatterns = patterns(
     '',
     url(r'^admin', include(admin.site.urls)),
-    url(r'^docs', include('rest_framework_swagger.urls')),
     url(r'^((?!admin|api|docs).)*$', IndexView.as_view()),
 )
 

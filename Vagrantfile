@@ -3,6 +3,7 @@
 
 # Vagrantfile API/syntax version.
 VAGRANTFILE_API_VERSION = "2"
+Vagrant.require_version ">= 1.6.0"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.define "web", primary: true do |web|

@@ -1,10 +1,13 @@
+""" Plugin allowing a django project to run on cherrypy
+    Originally sourced from https://bitbucket.org/Lawouach/cherrypy-recipes/src/c8290261eefb/frameworks/django_/
+    where it was provided with no license, although BSD is mentioned in a blog post.
+"""
 import imp
 import os, os.path
 
 import cherrypy
 from cherrypy.process import plugins
 
-from django.conf import settings
 from django.core.handlers.wsgi import WSGIHandler
 
 from libs.server.httplogger import HTTPLogger
