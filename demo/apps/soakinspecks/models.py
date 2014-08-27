@@ -160,6 +160,7 @@ class Order(models.Model):
     def __unicode__(self):
         return '{} - inventory: {}, customer: {}, quantity: {}, unit_price {}'.format(
             self.id,
+            self.inventory_id,
             self.customer_name,
             self.quantity,
             self.unit_price,
