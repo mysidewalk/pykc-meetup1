@@ -107,7 +107,7 @@ class Order(models.Model):
         """
         sorted_orders = sorted(
             orders,
-            key=lambda x: (x.inventory, not x.is_rainchecked, x.unit_price),
+            key=lambda x: (x.inventory, not x.is_rainchecked, x.unit_price * -1),
         )
         grouped_orders = [
             (inventory, list(orders))
@@ -116,25 +116,27 @@ class Order(models.Model):
         with transaction.atomic():
             for inventory, orders in grouped_orders:
                 for order in orders:
-                    if order.can_fulfill:
-                        order.fulfill()
+                    if order.can_fulfill(inventory):
+                        order.fulfill(inventory)
                     elif inventory.still_in_production:
                         order.raincheck()
                     else:
                         order.impossible()
     
-    @property
-    def can_fulfill(self):
+    def can_fulfill(self, inventory=None):
         """ Determines if an order can be fulfilled currently
         """
-        return self.inventory.quantity > self.quantity
+        if inventory is None:
+            inventory = self.inventory
+        return inventory.quantity > self.quantity
     
-    def fulfill(self):
+    def fulfill(self, inventory=None):
         """ Fulfills the order
         """
         assert not any((self.is_fulfilled, self.is_impossible)),\
             'This order cannot be fulfill-ed.'
-        inventory = self.inventory
+        if inventory is None:
+            inventory = self.inventory
         inventory.quantity -= self.quantity
         inventory.save()
         self.is_fulfilled = True
