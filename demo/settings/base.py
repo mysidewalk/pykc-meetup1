@@ -16,6 +16,7 @@ THIRD_PARTY_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'rest_framework',
+    'rest_framework_swagger',
 ]
 # **************************************************************************************************
 # Consider carefully the dependency graph of the app you will add to the inhouse apps list.
@@ -86,6 +87,20 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     )
+}
+
+SWAGGER_SETTINGS = {
+    'exclude_namespaces': [],  # List URL namespaces to ignore
+    'api_version': '0.1',  # Specify your API's version
+    'enabled_methods': [  # Specify which methods to enable in Swagger UI
+        'get',
+        'post',
+        'put',
+        'patch',
+        'delete'
+    ],
+    'is_authenticated': True,  # Set to True to enforce user authentication,
+    'is_superuser': True,  # Set to True to enforce admin only access
 }
 
 # urls without a trailing slash should not redirect
