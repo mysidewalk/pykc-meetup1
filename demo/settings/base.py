@@ -24,16 +24,20 @@ THIRD_PARTY_APPS = [
 # of anything specified later.
 # **************************************************************************************************
 INHOUSE_APPS = [
+    'common',
     'hello',
     'soakinspecks',
+    'analytics',
 ]
 INSTALLED_APPS = THIRD_PARTY_APPS + INHOUSE_APPS
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'common.middleware.APIRequestMetadataMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'analytics.middleware.ContentViewMiddleware',
 )
 
 CORS_ORIGIN_ALLOW_ALL = True

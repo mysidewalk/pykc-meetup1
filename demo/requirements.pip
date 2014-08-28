@@ -9,3 +9,4 @@ pytz==2014.4
 simplejson==3.6.3
 six==1.7.3
 ipython==2.2.0
+django-rest-swagger==0.1.14

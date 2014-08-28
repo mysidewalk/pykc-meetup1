@@ -6,7 +6,7 @@ from settings.base import *
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase.sqlite3',
+        'NAME': '/vagrant/demo/mydatabase.sqlite3',
     }
 }
 
